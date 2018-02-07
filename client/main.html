@@ -1,12 +1,10 @@
 <head>
-  <title>testsql</title>
+  <title>Meteor Reactive Users List</title>
 </head>
 
 <body>
   <h1>MRUL - Meteor Reactive Users List</h1>
-
   {{> hello}}
- 
 </body>
 
 <template name="hello">
@@ -26,7 +24,6 @@
         {{/each}}
     </tbody>
   </table>
-  
 </template>
 
 <template name="user">
@@ -40,20 +37,19 @@
 </template>
 
 <template name="listEmail">
-      <td>
-        <ul>
-        {{#each email in emails}}
-          {{#if aliasExists email=(email) id=(id)}}
+  <td>
+    <ul>
+      {{#each email in emails}}
+        {{#if aliasExists email=(email) id=(id)}}
           <li>{{email.alias}}</li>
-          {{/if}}
-        {{/each}}
-      </ul>
-      </td>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </td>
 </template>
 
 <template name="no_users">
-    <tr>
-      <td align="center" rowspan="3">Loading...</td>
-    </tr>
-  </template>
-
+  <tr>
+    <td align="center" rowspan="3">Loading...</td>
+  </tr>
+</template>
