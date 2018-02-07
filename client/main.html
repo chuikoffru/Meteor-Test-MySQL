@@ -1,0 +1,59 @@
+<head>
+  <title>testsql</title>
+</head>
+
+<body>
+  <h1>MRUL - Meteor Reactive Users List</h1>
+
+  {{> hello}}
+ 
+</body>
+
+<template name="hello">
+  <table width="680">
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Fullname</th>
+            <th>Emails</th>
+          </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+          {{> user}}
+          {{else}}
+          {{> no_users}}
+        {{/each}}
+    </tbody>
+  </table>
+  
+</template>
+
+<template name="user">
+  <tr>
+      <td>{{login}}</td>
+      <td>{{fname}} {{lname}}</td>
+      <td>
+        {{>listEmail id=(id)}}
+      </td>
+  </tr>
+</template>
+
+<template name="listEmail">
+      <td>
+        <ul>
+        {{#each email in emails}}
+          {{#if aliasExists email=(email) id=(id)}}
+          <li>{{email.alias}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+      </td>
+</template>
+
+<template name="no_users">
+    <tr>
+      <td align="center" rowspan="3">Loading...</td>
+    </tr>
+  </template>
+
